@@ -1,26 +1,32 @@
 
-import React, { useEffect } from 'react';
-import Header from './components/Header';
+import React, { useEffect, useState } from 'react';
+import { ArrowUp } from 'lucide-react';
 import Hero from './components/Hero';
-import Gallery from './components/Gallery';
 import AboutMe from './components/AboutMe';
 import Footer from './components/Footer';
+import Gallery from './components/Gallery';
+import GalleryPage from './pages/GalleryPage';
 
 const App: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState<'home' | 'gallery'>('home');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Header height
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
     }
+  };
+
+  const navigateToGallery = () => {
+    setCurrentPage('gallery');
+  };
+
+  const navigateToHome = () => {
+    setCurrentPage('home');
   };
 
   useEffect(() => {
@@ -46,16 +52,24 @@ const App: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Показывать кнопку когда прокрутили больше 300px от верха
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (currentPage === 'gallery') {
+    return <GalleryPage onNavigateHome={navigateToHome} />;
+  }
+
   return (
     <div className="min-h-screen">
-      <Header onScrollTo={scrollToSection} />
-      
       <main>
-        <Hero />
-        
-        <div className="animate-on-scroll">
-          <Gallery />
-        </div>
+        <Hero onScrollTo={scrollToSection} onNavigateToGallery={navigateToGallery} />
         
         <div className="animate-on-scroll">
           <AboutMe />
@@ -63,6 +77,17 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={`fixed bottom-8 right-8 z-50 p-4 bg-stone-900 text-white rounded-full shadow-lg hover:bg-stone-800 transition-all duration-300 ${
+          showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        aria-label="חזרה למעלה"
+      >
+        <ArrowUp size={24} strokeWidth={2} />
+      </button>
     </div>
   );
 };

@@ -1,20 +1,85 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Orly Sitbon Patisserie Website
 
-# Run and deploy your AI Studio app
+Веб-сайт для кондитерской Orly Sitbon Boutique.
 
-This contains everything you need to run your app locally.
+## 🚀 Запуск локально
 
-View your app in AI Studio: https://ai.studio/apps/drive/1tlcsGdcKeLsyDfABKZdGrV32_m7ik-xS
+**Требования:** Node.js 20+
 
-## Run Locally
+1. Установите зависимости:
+   ```bash
+   npm install
+   ```
 
-**Prerequisites:**  Node.js
+2. Запустите dev сервер:
+   ```bash
+   npm run dev
+   ```
 
+3. Откройте браузер по адресу `http://localhost:3000`
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 📦 Сборка для production
+
+```bash
+npm run build
+```
+
+Собранные файлы будут в папке `dist/`
+
+## 🌐 Деплой на GitHub Pages
+
+Проект настроен для автоматического деплоя на GitHub Pages через GitHub Actions.
+
+### Настройка GitHub Pages
+
+1. **Создайте репозиторий на GitHub** (если еще не создан)
+
+2. **Включите GitHub Pages в настройках репозитория:**
+   - Перейдите в Settings → Pages
+   - В разделе "Source" выберите "GitHub Actions"
+
+3. **Загрузите код в репозиторий:**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/orlysitbon.git
+   git push -u origin main
+   ```
+
+4. **После пуша в ветку `main`** GitHub Actions автоматически соберет и задеплоит сайт
+
+5. **Сайт будет доступен по адресу:**
+   ```
+   https://YOUR_USERNAME.github.io/orlysitbon/
+   ```
+
+### Настройка для кастомного домена
+
+Если вы хотите использовать кастомный домен:
+
+1. Измените `GITHUB_PAGES_BASE` в `.github/workflows/deploy.yml` с `/orlysitbon/` на `/`
+2. В настройках репозитория (Settings → Pages) добавьте ваш кастомный домен
+3. Настройте DNS записи согласно инструкциям GitHub
+
+## 📁 Структура проекта
+
+- `components/` - React компоненты
+- `pages/` - Страницы приложения
+- `public/assets/` - Статические ресурсы (изображения, логотипы)
+- `utils/` - Утилиты
+- `constants.tsx` - Константы и конфигурация
+
+## 🛠 Технологии
+
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide React (иконки)
+
+## 📝 Примечания
+
+- Все изображения должны быть в папке `/home/d371l/Desktop/assets/` и будут автоматически скопированы в `public/assets/` при сборке
+- Скрипт `copy-assets.js` автоматически копирует ресурсы перед сборкой

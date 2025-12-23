@@ -1,5 +1,33 @@
 
 import { Product, Category, NavItem } from './types';
+import { 
+  SWEET_PRODUCTS_IMAGES, 
+  SALTY_PRODUCTS_IMAGES, 
+  MEAL_TRAYS_IMAGES, 
+  PERFECT_PACKAGES_IMAGES 
+} from './utils/images';
+
+const getImagePath = (folder: string, filename: string): string => {
+  // Use English folder names (no encoding needed for ASCII)
+  // For GitHub Pages, use /assets/ instead of public/assets/
+  return `/assets/${folder}/${filename}`;
+};
+
+// Helper function to create products from image arrays
+const createProductsFromImages = (
+  images: string[],
+  folderName: string,
+  categoryId: string,
+  baseName: string
+): Product[] => {
+  return images.map((image, index) => ({
+    id: `${categoryId}-${index + 1}`,
+    name: `${baseName} ${index + 1}`,
+    description: '',
+    image: getImagePath(folderName, image),
+    category: categoryId,
+  }));
+};
 
 export const EXTERNAL_LINKS = {
   ORDER: 'https://orlysitbon.mytabit.co.il/tabit-order?siteName=orlysitbon&step=enter',
@@ -8,43 +36,50 @@ export const EXTERNAL_LINKS = {
 };
 
 export const NAV_LINKS: NavItem[] = [
-  { label: 'לרכישה בפטיסרי', url: EXTERNAL_LINKS.ORDER, isExternal: true },
-  { label: 'הצטרפות למועדון', url: EXTERNAL_LINKS.JOIN, isExternal: true },
   { label: 'גיפט קארד', url: EXTERNAL_LINKS.GIFT_CARD, isExternal: true },
+  { label: 'הצטרפות למועדון', url: EXTERNAL_LINKS.JOIN, isExternal: true },
+  { label: 'לרכישה בפטיסרי', url: EXTERNAL_LINKS.ORDER, isExternal: true },
 ];
 
 export const GALLERY_CATEGORIES: Category[] = [
   {
-    id: 'cakes',
-    title: 'עוגות מעוצבות',
-    products: [
-      { id: 'c1', name: 'עוגת שכבות פירות יער', description: 'שכבות של טורט אוורירי with קרם מסקרפונה ופירות יער טריים', image: 'https://picsum.photos/seed/cake1/600/600', category: 'cakes' },
-      { id: 'c2', name: 'עוגת שוקולד מלכותית', description: 'שוקולד בלגי איכותי, גנאש עשיר ונגיעות אגוזי לוז', image: 'https://picsum.photos/seed/cake2/600/600', category: 'cakes' },
-      { id: 'c3', name: 'טארט לימון ומרנג', description: 'בצק פריך חמאתי, קרם לימון חמצמץ ומרנג שוויצרי צרוב', image: 'https://picsum.photos/seed/cake3/600/600', category: 'cakes' },
-    ],
+    id: 'sweet',
+    title: 'מוצרים מתוקים',
+    products: createProductsFromImages(
+      SWEET_PRODUCTS_IMAGES,
+      'sweet-products',
+      'sweet',
+      'מוצר מתוק'
+    ),
   },
   {
-    id: 'pastries',
-    title: 'מאפים טריים',
-    products: [
-      { id: 'p1', name: 'קרואסון חמאה קלאסי', description: 'מאפה שכבות פריך with חמאה צרפתית משובחת', image: 'https://picsum.photos/seed/pastry1/600/600', category: 'pastries' },
-      { id: 'p2', name: 'מאפה דניש פיסטוק', description: 'בצק שמרים עשיר עם קרם פיסטוק ודובדבני אמרנה', image: 'https://picsum.photos/seed/pastry2/600/600', category: 'pastries' },
-    ],
+    id: 'salty',
+    title: 'מוצרים מלוחים',
+    products: createProductsFromImages(
+      SALTY_PRODUCTS_IMAGES,
+      'salty-products',
+      'salty',
+      'מוצר מלוח'
+    ),
   },
   {
-    id: 'desserts',
-    title: 'קינוחי כוסות',
-    products: [
-      { id: 'd1', name: 'טירמיסו איטלקי', description: 'בישקוטי ספוגים באספרסו עם קרם זביונה עדין', image: 'https://picsum.photos/seed/dessert1/600/600', category: 'desserts' },
-      { id: 'd2', name: 'מוס שוקולד לבן ופטל', description: 'מוס אוורירי בתוך כוס מעוצבת עם שכבת קולי פטל', image: 'https://picsum.photos/seed/dessert2/600/600', category: 'desserts' },
-    ],
+    id: 'trays',
+    title: 'מגשי ארוחה',
+    products: createProductsFromImages(
+      MEAL_TRAYS_IMAGES,
+      'meal-trays',
+      'trays',
+      'מגש ארוחה'
+    ),
   },
   {
     id: 'packages',
-    title: 'מארזים מפנקים',
-    products: [
-      { id: 'm1', name: 'מארז "בוקר מתוק"', description: 'מבחר מאפים, ריבות עבודת יד ועוגיות חמאה', image: 'https://picsum.photos/seed/package1/600/600', category: 'packages' },
-      { id: 'm2', name: 'קופסת מקרונים צבעונית', description: '12 יחידות של מקרונים בטעמים משתנים', image: 'https://picsum.photos/seed/package2/600/600', category: 'packages' },
-    ],
+    title: 'מארזים מושלמים',
+    products: createProductsFromImages(
+      PERFECT_PACKAGES_IMAGES,
+      'perfect-packages',
+      'packages',
+      'מארז מושלם'
+    ),
   },
 ];

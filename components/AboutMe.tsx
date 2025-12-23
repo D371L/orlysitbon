@@ -3,50 +3,53 @@ import React from 'react';
 
 const AboutMe: React.FC = () => {
   return (
-    <section id="about" className="py-40 bg-stone-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-24">
+    <section id="about" className="py-16 sm:py-24 md:py-32 lg:py-40 bg-stone-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col lg:flex-row-reverse items-start gap-12 sm:gap-16 md:gap-20 lg:gap-24">
           {/* Clean Image Container - No decorations */}
           <div className="flex-1 w-full max-w-2xl">
-            <div className="relative overflow-hidden shadow-2xl rounded-sm">
+            <div className="relative overflow-hidden shadow-2xl rounded-3xl">
               <img
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800"
+                src="/assets/aboutmephoto.jpeg"
                 alt="אורלי סיטבון"
                 className="w-full h-auto object-cover grayscale-[0.05]"
               />
             </div>
           </div>
 
-          <div className="flex-1 text-right">
-            <span className="text-stone-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-8 block">הסיפור שלי</span>
-            <h2 className="text-4xl md:text-6xl font-light text-stone-900 mb-12 leading-tight">
-              התשוקה שלי <br /> <span className="text-stone-500 italic font-serif">לאפייה וליופי</span>
+          <div className="flex-1 text-right w-full">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 mb-8 sm:mb-10 md:mb-12 leading-tight">
+              קצת עליי <br /> <span className="text-stone-500 italic font-serif">הסיפור שלי</span>
             </h2>
-            <div className="space-y-10 text-xl text-stone-600 leading-relaxed font-light">
+            <div className="space-y-6 sm:space-y-8 md:space-y-10 text-base sm:text-lg md:text-xl text-stone-600 leading-relaxed font-light">
               <p>
-                נעים מאוד, אני אורלי. המפגש הראשון שלי עם הקמח והסוכר היה במטבח הביתי, ומאז ועד היום, האהבה הזאת רק הלכה והעמיקה.
+                הי, נעים להכיר! שמי אורלי סיטבון
+                בת 41, נשואה לעמי , אמא לשלושה ילדים מתוקים (נועם, עידו ואיילה) וקונדיטורית עם תשוקה עזה ליצירה ופיתוח. האהבה שלי לאפייה החלה עוד מבית אימי ז״ל במטבח עשיר בטעמים ורעיונות יוצאי דופן!!
+                בבית בו גדלתי, ריח אפיה, היה חלק בלתי נפרד מהבית ומכל חג, אירוע ומסיבה.
               </p>
               <p>
-                לאחר שנים של השתלמויות בבתי ספר מובילים, פיתחתי סגנון ייחודי המשלב אסתטיקה נקייה עם טעמים עשירים ומרקמים מדויקים.
+                ביום בהיר אחד בדיוק בתחילת חודשי החורף( שהיית כבת 13 ) נשמטה הקרקע תחת רגלי ואימי היקרה שהייתה כל עולמי נפטרה .
+                חור גדול נפער חיי.... ריח האפייה, הטעמים וכל חוויות המטבח נעלמו מביתי בשנים הראשונות לאחר פטירת אימי.
+                שנים שפחדתי לנסות להביט בספר המתכונים של אמא, שנים שלא העזתי להשתמש בכלים שלה וכל זאת מחשש לאכזב אותה כי לא הצלחתי לעשות זאת מושלם כמו שלה, יפה וטעים כמו שלה.
+                אך הצורך העז להחזיר את זכרון הטעם והריחות של אמא לתוך ביתנו ולשמח את משפחתי ואבי דחקו אותי למקום שם התחלתי לנסות, לטעות( המון ) וגם להצליח מידי פעם מה שגרם לי אושר שאין לתארו כלל.
+                אך מעולם לא חשבתי שאוכל להפוך את כל הצורך הזה למקצוע ולא סתם מקצוע אלה אהבה ותשוקה שאם לומר את האמת לפעמים קצת מטורפת ....
               </p>
               <p>
-                אני מאמינה שקינוח טוב הוא כזה שמעורר את כל החושים. הריח, המראה, המרקם וכמובן - הטעם הבלתי נשכח. כל יצירה שיוצאת מהתנור שלי מקבלת טיפול אישי ומסור.
+                וכך באמצע החיים עם שלושה ילדים קטנים ואמהות טרייה, החלטתי לעשות שינוי משמעותי בחיי. מצוידת בבעל תומך התחלתי ללמוד קונדטוריה ״בדן גורמה״ ולאחר מספר שנים ״באסטלה כיתת אומן״, לאחר 3 שנים שוקוליטריה אצל ״ ניל פוגל ״ והכשרה בפריז.
+                מיום ליום "חיידק" האפייה השתלט עלי ולא יכולתי לחשוב על משהו אחר שאעשה מלבד יצירה טעימה וכימיה מתוקה בעולם הקונדטוריה.
+                Orly Sitbon Patisserie הוקמה עם המון אהבה לפטיסרי הצרפתי, הטעמים, הצבעים, החידושים והמרקמים.
+                אני אוהבת לחקור וללמוד את חומרי הגלם, לפתח מתכונים חדשים, לנסות דברים חדשים, לשלב טעמים וליצור קינוחים מפתיעים.
+                הפרטים הקטנים חשובים לי מאוד, וכל קינוח מקבל את מלוא תשומת הלב, משלב הרעיון, רישום הסקיצה, שילוב הטעמים ועד להשלמת היצירה הסופית.
               </p>
-            </div>
-            
-            <div className="mt-20 flex flex-wrap gap-16 border-t border-stone-200 pt-12">
-              <div className="flex flex-col">
-                <span className="text-4xl font-light text-stone-900">12+</span>
-                <span className="text-stone-400 text-xs font-bold uppercase tracking-widest mt-2">שנות יצירה</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-4xl font-light text-stone-900">2,000+</span>
-                <span className="text-stone-400 text-xs font-bold uppercase tracking-widest mt-2">רגעים מתוקים</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-4xl font-light text-stone-900">100%</span>
-                <span className="text-stone-400 text-xs font-bold uppercase tracking-widest mt-2">חומרי גלם טבעיים</span>
-              </div>
+              <p>
+                הלמידה וההתפתחות הם חלק חשוב בחיי, הן בפן המקצועי והן בפן האישי, ואני מרבה להשתתף בהשתלמויות והכי חשוב לקרוא, ללמוד ולחקור את התחום ללא הפסקה.
+                את האהבה שלי לקינוחים, יצירה, דיוק ואנשים, אני משלבת בשני תחומים עיקריים:
+                העברת הידע והניסיון שצברתי במהלך השנים בסדנאות אפייה מקצועיות, בקבוצות קטנות ואינטימיות, בשיטה ייחודית של הבנת חומרי הגלם, טכניקות מקצועיות ומכירה של של קינוחים, מאפים ותוצרים יוצאי דופן
+                אני מזמינה אתכם להצטרף אליי ולהתחיל להתאהב.
+              </p>
+              <p className="text-stone-500 italic">
+                מוקדש באהבה אין סופית לאמא שלי מירים ברדה ז״ל
+              </p>
             </div>
           </div>
         </div>

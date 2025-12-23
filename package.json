@@ -4,13 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "rename-folders": "node rename-folders.js",
+    "copy-assets": "node copy-assets.js",
+    "setup-assets": "npm run copy-assets",
+    "dev": "npm run setup-assets && vite",
+    "build": "npm run setup-assets && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "react-router-dom": "^6.26.0",
     "lucide-react": "^0.562.0"
   },
   "devDependencies": {
