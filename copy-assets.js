@@ -5,7 +5,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const sourceDir = '/home/d371l/Desktop/assets';
+// Source directory - check if it exists, otherwise skip (for CI/CD)
+const sourceDir = process.env.ASSETS_SOURCE_DIR || '/home/d371l/Desktop/assets';
 const targetDir = path.join(__dirname, 'public', 'assets');
 
 // Mapping from Hebrew folder names to English folder names
@@ -41,8 +42,21 @@ function copyDir(src, dest, mapping = null) {
 
 try {
   if (!fs.existsSync(sourceDir)) {
-    console.error(`Source directory does not exist: ${sourceDir}`);
-    process.exit(1);
+    console.warn(`Source directory does not exist: ${sourceDir}`);
+    console.warn('Skipping asset copy (assets should already be in public/assets/)');
+    // Check if target directory already has assets
+    if (fs.existsSync(targetDir)) {
+      const existingFiles = fs.readdirSync(targetDir);
+      if (existingFiles.length > 0) {
+        console.log('Assets already exist in public/assets/, skipping copy.');
+        process.exit(0);
+      }
+    }
+    // Create empty target directory if it doesn't exist
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    process.exit(0);
   }
   
   // Clean target directory first

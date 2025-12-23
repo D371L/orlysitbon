@@ -2,11 +2,22 @@
 
 ## Быстрый старт
 
-1. **Создайте репозиторий на GitHub:**
+1. **Убедитесь, что ассеты скопированы:**
+   ```bash
+   npm run copy-assets
+   ```
+   Это скопирует изображения из `/home/d371l/Desktop/assets/` в `public/assets/`
+
+2. **Создайте package-lock.json (если его нет):**
+   ```bash
+   npm install
+   ```
+
+3. **Создайте репозиторий на GitHub:**
    - Название: `orlysitbon` (или любое другое)
    - Публичный репозиторий
 
-2. **Инициализируйте git и загрузите код:**
+4. **Инициализируйте git и загрузите код:**
    ```bash
    git init
    git add .
@@ -15,6 +26,8 @@
    git remote add origin https://github.com/YOUR_USERNAME/orlysitbon.git
    git push -u origin main
    ```
+   
+   **Важно:** Убедитесь, что папка `public/assets/` с изображениями добавлена в git!
 
 3. **Включите GitHub Pages:**
    - Перейдите в Settings → Pages вашего репозитория
