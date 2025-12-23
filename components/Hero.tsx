@@ -134,10 +134,6 @@ const Hero: React.FC<HeroProps> = ({ onScrollTo, onNavigateToGallery }) => {
       </aside>
 
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-0">
-        <span className="inline-block px-4 sm:px-6 py-1.5 sm:py-2 mb-6 sm:mb-8 md:mb-10 text-[9px] sm:text-[10px] font-bold tracking-[0.3em] sm:tracking-[0.4em] text-stone-400 uppercase border border-stone-200 rounded-full bg-white/90 shadow-sm">
-          CONFECTIONERY ART
-        </span>
-        
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[100px] mb-4 sm:mb-5 md:mb-6 leading-[1.1] sm:leading-[1] tracking-tight px-2">
           <span className="text-stone-900" style={{ fontFamily: "'Noto Serif Hebrew', serif", fontWeight: 300, letterSpacing: '0.02em' }}>אורלי סיטבון</span> <br /> 
           <span className="text-stone-500/80 italic font-serif text-3xl sm:text-4xl md:text-5xl lg:text-8xl mt-2 sm:mt-3 md:mt-4 block">קינוחי בוטיק בעבודת יד</span>
