@@ -9,8 +9,9 @@ import {
 
 const getImagePath = (folder: string, filename: string): string => {
   // Use English folder names (no encoding needed for ASCII)
-  // For GitHub Pages, use /assets/ instead of public/assets/
-  return `/assets/${folder}/${filename}`;
+  // Use import.meta.env.BASE_URL to support GitHub Pages base path (/orlysitbon/)
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  return `${baseUrl}assets/${folder}/${filename}`;
 };
 
 // Helper function to create products from image arrays

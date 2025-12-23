@@ -81,7 +81,7 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onNavigateHome }) => {
               className="pointer-events-auto cursor-pointer"
             >
               <img 
-                src="/assets/logo.png"
+                src={`${import.meta.env.BASE_URL || '/'}assets/logo.png`}
                 alt="אורלי סיטבון" 
                 className="h-40 sm:h-32 md:h-36 lg:h-40 xl:h-44 w-auto object-contain"
                 style={{ 

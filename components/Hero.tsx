@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ onScrollTo, onNavigateToGallery }) => {
           {/* Center: Logo */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none pt-20 sm:pt-10 md:pt-12 z-40">
               <img 
-                src="/assets/logo.png"
+                src={`${import.meta.env.BASE_URL || '/'}assets/logo.png`}
                 alt="אורלי סיטבון" 
                 className="h-40 sm:h-32 md:h-36 lg:h-40 xl:h-44 w-auto cursor-pointer object-contain pointer-events-auto"
               style={{ 
@@ -64,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ onScrollTo, onNavigateToGallery }) => {
               }}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               onError={(e) => {
-                console.error('Logo failed to load:', '/assets/logo.png');
+                console.error('Logo failed to load:', `${import.meta.env.BASE_URL || '/'}assets/logo.png`);
               }}
               onLoad={() => {
                 console.log('Logo loaded successfully');

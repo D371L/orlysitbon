@@ -10,7 +10,7 @@ const AboutMe: React.FC = () => {
           <div className="flex-1 w-full max-w-2xl">
             <div className="relative overflow-hidden shadow-2xl rounded-3xl">
               <img
-                src="/assets/aboutmephoto.jpeg"
+                src={`${import.meta.env.BASE_URL || '/'}assets/aboutmephoto.jpeg`}
                 alt="אורלי סיטבון"
                 className="w-full h-auto object-cover grayscale-[0.05]"
               />
