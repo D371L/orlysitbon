@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, ChevronLeft } from 'lucide-react';
+import { Menu, X, ChevronLeft, Phone, Mail, MapPin } from 'lucide-react';
 import { NAV_LINKS } from '../constants';
 
 interface HeroProps {
@@ -123,11 +123,30 @@ const Hero: React.FC<HeroProps> = ({ onScrollTo, onNavigateToGallery }) => {
           </ul>
 
           {/* Sidebar Footer */}
-          <div className="mt-auto pt-8 sm:pt-12 md:pt-16 border-t border-stone-100 text-center">
-            <p className="text-[10px] sm:text-[11px] text-stone-400 font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-6">אורלי סיטבון — בוטיק</p>
-            <div className="flex justify-center gap-6 sm:gap-8 text-stone-400">
-              <a href="#" className="hover:text-stone-900 transition-colors text-xs sm:text-sm font-medium">אינסטגרם</a>
-              <a href="#" className="hover:text-stone-900 transition-colors text-xs sm:text-sm font-medium">פייסבוק</a>
+          <div className="mt-auto pt-8 sm:pt-12 md:pt-16 border-t border-stone-100">
+            <div className="mb-6 sm:mb-8">
+              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-stone-900 mb-4 sm:mb-5 text-right">יצירת קשר</h4>
+              <ul className="space-y-3 sm:space-y-4 text-right">
+                <li className="flex items-center justify-end gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
+                  <span className="break-all">054-249-0337</span>
+                  <Phone size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
+                </li>
+                <li className="flex items-center justify-end gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
+                  <span className="break-all">orlysytbon@gmail.com</span>
+                  <Mail size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
+                </li>
+                <li className="flex items-center justify-end gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
+                  <span>יצחק שדה 7 נהריה</span>
+                  <MapPin size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
+                </li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <p className="text-[10px] sm:text-[11px] text-stone-400 font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-6">אורלי סיטבון — בוטיק</p>
+              <div className="flex justify-center gap-6 sm:gap-8 text-stone-400">
+                <a href="#" className="hover:text-stone-900 transition-colors text-xs sm:text-sm font-medium">אינסטגרם</a>
+                <a href="#" className="hover:text-stone-900 transition-colors text-xs sm:text-sm font-medium">פייסבוק</a>
+              </div>
             </div>
           </div>
         </div>
