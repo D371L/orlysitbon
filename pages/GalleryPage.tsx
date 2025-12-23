@@ -184,15 +184,15 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onNavigateHome }) => {
               <h4 className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-stone-900 mb-4 sm:mb-5 text-right">יצירת קשר</h4>
               <ul className="space-y-3 sm:space-y-4 text-right">
                 <li className="flex items-center justify-end gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
-                  <span className="break-all">054-249-0337</span>
+                  <a href="tel:0542490337" className="break-all hover:text-stone-600 transition-colors">054-249-0337</a>
                   <Phone size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
                 </li>
                 <li className="flex items-center justify-end gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
-                  <span className="break-all">orlysytbon@gmail.com</span>
+                  <a href="mailto:orlysytbon@gmail.com" className="break-all hover:text-stone-600 transition-colors">orlysytbon@gmail.com</a>
                   <Mail size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
                 </li>
                 <li className="flex items-center justify-end gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
-                  <span>יצחק שדה 7 נהריה</span>
+                  <a href="https://www.google.com/maps/search/?api=1&query=יצחק+שדה+7+נהריה" target="_blank" rel="noopener noreferrer" className="hover:text-stone-600 transition-colors">יצחק שדה 7 נהריה</a>
                   <MapPin size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
                 </li>
               </ul>

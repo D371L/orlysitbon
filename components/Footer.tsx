@@ -31,15 +31,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 sm:space-y-4 md:space-y-5">
               <li className="flex items-center gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
                 <Phone size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
-                <span className="break-all">054-249-0337</span>
+                <a href="tel:0542490337" className="break-all hover:text-stone-600 transition-colors">054-249-0337</a>
               </li>
               <li className="flex items-center gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
                 <Mail size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
-                <span className="break-all">orlysytbon@gmail.com</span>
+                <a href="mailto:orlysytbon@gmail.com" className="break-all hover:text-stone-600 transition-colors">orlysytbon@gmail.com</a>
               </li>
               <li className="flex items-center gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
                 <MapPin size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
-                <span>יצחק שדה 7 נהריה</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=יצחק+שדה+7+נהריה" target="_blank" rel="noopener noreferrer" className="hover:text-stone-600 transition-colors">יצחק שדה 7 נהריה</a>
               </li>
             </ul>
           </div>
