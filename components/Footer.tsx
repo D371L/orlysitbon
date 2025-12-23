@@ -31,15 +31,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 sm:space-y-4 md:space-y-5">
               <li className="flex items-center gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
                 <Phone size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
-                <span className="break-all">050-1234567</span>
+                <span className="break-all">054-249-0337</span>
               </li>
               <li className="flex items-center gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
                 <Mail size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
-                <span className="break-all">office@orlysitbon.co.il</span>
+                <span className="break-all">orlysytbon@gmail.com</span>
               </li>
               <li className="flex items-center gap-3 sm:gap-4 text-stone-900 text-sm sm:text-base font-light">
                 <MapPin size={16} className="sm:w-[18px] sm:h-[18px] text-stone-600 flex-shrink-0" />
-                <span>סטודיו לעיצוב, תל אביב</span>
+                <span>יצחק שדה 7 נהריה</span>
               </li>
             </ul>
           </div>
