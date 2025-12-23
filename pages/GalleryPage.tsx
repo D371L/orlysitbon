@@ -19,30 +19,43 @@ const GalleryPage: React.FC<GalleryPageProps> = ({ onNavigateHome }) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('opacity-100', 'translate-y-0');
             entry.target.classList.remove('opacity-0', 'translate-y-10');
+            // Останавливаем наблюдение после того, как элемент стал видимым
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.01, rootMargin: '100px' }
     );
 
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach((el) => {
-      // Проверяем, находится ли элемент уже в viewport
-      const rect = el.getBoundingClientRect();
-      const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    // Используем setTimeout чтобы убедиться, что DOM полностью отрендерен
+    const timeoutId = setTimeout(() => {
+      const elements = document.querySelectorAll('.animate-on-scroll');
       
-      if (isInViewport) {
-        // Если элемент уже в viewport, сразу делаем его видимым
-        el.classList.add('opacity-100', 'translate-y-0');
-        el.classList.remove('opacity-0', 'translate-y-10');
-      } else {
-        // Иначе добавляем скрытие и наблюдаем
-        el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
-        observer.observe(el);
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`Found ${elements.length} elements with animate-on-scroll class`);
       }
-    });
+      
+      elements.forEach((el) => {
+        // Проверяем, находится ли элемент уже в viewport
+        const rect = el.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight + 100 && rect.bottom > -100;
+        
+        if (isInViewport) {
+          // Если элемент уже в viewport, сразу делаем его видимым
+          el.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-700');
+          el.classList.remove('opacity-0', 'translate-y-10');
+        } else {
+          // Иначе добавляем скрытие и наблюдаем
+          el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+          observer.observe(el);
+        }
+      });
+    }, 100);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {

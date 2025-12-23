@@ -3,6 +3,17 @@ import React from 'react';
 import { GALLERY_CATEGORIES } from '../constants';
 
 const Gallery: React.FC = () => {
+  // Debug: Log categories on mount
+  React.useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Gallery categories:', GALLERY_CATEGORIES.map(c => ({
+        id: c.id,
+        title: c.title,
+        productsCount: c.products.length
+      })));
+    }
+  }, []);
+
   if (GALLERY_CATEGORIES.length === 0) {
     return (
       <section id="gallery" className="py-16 sm:py-24 md:py-32 lg:py-48 bg-white">
@@ -36,11 +47,25 @@ const Gallery: React.FC = () => {
         </div>
 
         <div className="space-y-20 sm:space-y-32 md:space-y-48 lg:space-y-64">
-          {GALLERY_CATEGORIES.map((category, categoryIndex) => (
+          {GALLERY_CATEGORIES.map((category, categoryIndex) => {
+            // Debug logging
+            if (process.env.NODE_ENV === 'development') {
+              console.log(`Category ${category.id} (${category.title}): ${category.products.length} products`);
+            }
+            
+            // Skip empty categories
+            if (category.products.length === 0) {
+              return null;
+            }
+            
+            return (
             <div 
               key={category.id} 
               id={`category-${category.id}`} 
-              className={categoryIndex === 0 ? 'scroll-mt-24 sm:scroll-mt-28 md:scroll-mt-32' : 'animate-on-scroll scroll-mt-24 sm:scroll-mt-28 md:scroll-mt-32'}
+              data-category-id={category.id}
+              className={categoryIndex === 0 
+                ? 'scroll-mt-24 sm:scroll-mt-28 md:scroll-mt-32' 
+                : 'animate-on-scroll scroll-mt-24 sm:scroll-mt-28 md:scroll-mt-32'}
             >
               <div className="flex items-center justify-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 relative">
                 <div className="absolute left-0 right-0 h-px bg-stone-100 -z-10" />
@@ -83,7 +108,8 @@ const Gallery: React.FC = () => {
                 })}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
